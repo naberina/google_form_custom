@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+
+  <div class="complete_survey__modal" id="complete_survey__modal">
+      <div class="complete_survey__overlay" id="complete_survey__overlay"></div>
+      <div class="main_visual__modal__base" id="main_visual__modal__base">
+          <h4>餃子アンケート</h4>
+          <div class="form-content">
+            <p>テストアンケート</p>
+            <h5>回答お願い致します</h5>
+          </div>
+              <form action="https://docs.google.com/forms/d/e/1FAIpQLSfjRF-_I5U3dS58JA5o0V1O3BSwAys4_F8haaKgwn_GSxjWag/formResponse" method="post" name="myForm" target="dummyIframe">
+                <div class="form-content">
+                  <div class="form-group">
+                    <label class='title'>お名前 <span style="color: red;">*</span></label>
+                    <input type="text" id="name" name="entry.941430886" class="form-control" value="">
+                  </div>
+
+                  <div class="form-group">
+                      <label label class='title'>性別<span style="color: red;">*</span></label>
+                      <label class="check_label">
+                          <input class="radio form-check-input" type="radio" name="entry.48987123" value="男性">
+                          <span class="radio-icon"></span>
+                            男性
+                      </label>
+                      <label class="check_label">
+                          <input class="radio form-check-input" type="radio" name="entry.48987123" value="女性">
+                          <span class="radio-icon"></span>
+                            女性
+                      </label>
+                  </div>
+
+                  <div class="form-group">
+                      <label label class='title'>推し餃子<span style="color: red;">*</span></label>
+                      <select name="job_change_times" id="job_change_times" class="form-control" required>
+                          <option disabled selected>選択してください</option>
+                          <option value="焼き餃子">焼き餃子</option>
+                          <option value="水餃子">水餃子</option>
+                          <option value="揚げ餃子">揚げ餃子</option>
+                          <option value="蒸し餃子">蒸し餃子</option>
+                          <option value="その他">その他</option>
+                      </select>
+                      <input type="hidden" name="entry.274482546" class="job_change_times">
+                  </div>
+
+                  <div class="form-group">
+                      <label label class='title'>推している理由</label>
+                      <textarea class="form-control" placeholder="" name="entry.16327347"></textarea>
+                  </div>
+
+                  <div class="form-group">
+                      <label label class='title'>好きなタレ<span style="color: red;">*</span></label>
+                      <label class="check_label">
+                          <input class="checkbox form-check-input" type="checkbox" name="entry.185104560" value="醤油">
+                          <span class="checkbox-icon"></span>
+                              醤油
+                      </label>
+
+                      <label class="check_label">
+                          <input class="checkbox form-check-input" type="checkbox" name="entry.185104560" value="お酢">
+                          <span class="checkbox-icon"></span>
+                            お酢
+                      </label>
+
+                      <label class="check_label">
+                          <input class="checkbox form-check-input" type="checkbox" name="entry.185104560" value="ラー油">
+                          <span class="checkbox-icon"></span>
+                            ラー油
+                      </label>
+
+                      <label class="check_label">
+                          <input class="checkbox form-check-input" type="checkbox" name="entry.185104560" value="コショウ">
+                          <span class="checkbox-icon"></span>
+                            コショウ
+                      </label>
+
+                      <label class="check_label">
+                          <input class="checkbox form-check-input" type="checkbox" name="entry.185104560" value="柚子胡椒">
+                          <span class="checkbox-icon"></span>
+                            柚子胡椒
+                      </label>
+
+                      <label class="check_label">
+                          <input class="checkbox form-check-input" type="checkbox" name="entry.185104560" value="ポン酢">
+                          <span class="checkbox-icon"></span>
+                            ポン酢
+                      </label>
+
+                      <label class="check_label">
+                          <input class="checkbox form-check-input" type="checkbox" name="entry.185104560" value="ソース">
+                          <span class="checkbox-icon"></span>
+                            ソース
+                      </label>
+
+                      <label class="check_label">
+                          <input class="checkbox form-check-input" type="checkbox" name="entry.185104560" value="味噌">
+                          <span class="checkbox-icon"></span>
+                            味噌
+                      </label>
+
+                      <label class="check_label">
+                          <input class="checkbox form-check-input" type="checkbox" name="entry.185104560" value="味噌">
+                          <span class="checkbox-icon"></span>
+                            その他
+                      </label>
+                  </div>
+
+              </div><!-- end of form-content -->
+
+              <input class="btn btn-primary btn-lg btn-block" type="submit" value="送信">
+          </form>
+          <iframe name="dummyIframe" style="display:none;"></iframe>
+      </div>
+  </div>
+
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+  <script>
+      // // モーダルの表示
+      $('#complete_survey__overlay').fadeIn();
+      $('#complete_survey__modal').fadeIn();
+
+      (function() {
+        //セレクトボックスが切り替わったら発動
+        $('select').change(function() {
+          // 生年月日
+          var year = $("select#year").val();
+          $("input.year").val(year);
+          var month = $("select#month").val();
+          $("input.month").val(month);
+          var day = $("select#day").val();
+          $("input.day").val(day);
+          // 学歴
+          var education_back = $("select#education_back").val();
+          $("input.education_back").val(education_back);
+          // 現職
+          var occupation = $("select#occupation").val();
+          $("input.occupation").val(occupation);
+          // 雇用形態
+          var hiring = $("select#hiring").val();
+          $("input.hiring").val(hiring);
+          // 勤続年数
+          var service_years = $("select#service_years").val();
+          $("input.service_years").val(service_years);
+          // 年収
+          var annual_income = $("select#annual_income").val();
+          $("input.annual_income").val(annual_income);
+          // 転職回数
+          var job_change_times = $("select#job_change_times").val();
+          $("input.job_change_times").val(job_change_times);
+          // 受講開始時期
+          var start_time = $("select#start_time").val();
+          $("input.start_time").val(start_time);
+        });
+      })();
+
+      $(document).ready(function () {
+          $("#main_visual__modal__base").submit(function (event) {
+              $.ajax({
+              }).done(function(data) {
+                $('#complete_survey__overlay').fadeOut();
+                $('#complete_survey__modal').fadeOut();
+              });
+              // event.preventDefault();
+          });
+      });
+
+  </script>
+
+  </body>
+</html>
